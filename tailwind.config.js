@@ -4,6 +4,7 @@ const Color = require('color')
 
 module.exports = {
   purge: ['public/**/*.html'],
+  darkMode: 'class',
   theme: {
     themeVariants: ['dark'],
     customForms: (theme) => ({
@@ -176,11 +177,7 @@ module.exports = {
       'focus',
       'active',
       'odd',
-      'dark',
-      'dark:hover',
-      'dark:focus',
-      'dark:active',
-      'dark:odd',
+      'dark'
     ],
     display: ['responsive', 'dark'],
     textColor: [
@@ -188,18 +185,14 @@ module.exports = {
       'hover',
       'active',
       'dark',
-      'dark:focus-within',
-      'dark:hover',
-      'dark:active',
     ],
-    placeholderColor: ['focus', 'dark', 'dark:focus'],
-    borderColor: ['focus', 'hover', 'dark', 'dark:focus', 'dark:hover'],
+    placeholderColor: ['focus', 'dark'],
+    borderColor: ['focus', 'hover', 'dark'],
     divideColor: ['dark'],
-    boxShadow: ['focus', 'dark:focus'],
+    boxShadow: ['focus'],
   },
   plugins: [
-    require('tailwindcss-multi-theme'),
-    require('@tailwindcss/custom-forms'),
+    require('@tailwindcss/forms'),
     plugin(({ addUtilities, e, theme, variants }) => {
       const newUtilities = {}
       Object.entries(theme('colors')).map(([name, value]) => {
